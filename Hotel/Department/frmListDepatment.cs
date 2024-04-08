@@ -6,18 +6,18 @@ using System.Windows.Forms;
 
 namespace Hotel.EmployeeType
 {
-    public partial class frmEmployeeType : Form
+    public partial class frmListDepatment : Form
     {
         DataTable dtEmployeeType = new DataTable();
 
         private void _loadData()
         {
-            dtEmployeeType = clsEmployeeTypeBuisness.getEmployeeTypes();
+            dtEmployeeType = clsDepartmentBuisness.getDepartments();
             dgvEmployeeType.DataSource = dtEmployeeType;
 
             if (dtEmployeeType.Rows.Count > 0)
             {
-                dgvEmployeeType.Columns[0].HeaderText = "EmployeeType ID";
+                dgvEmployeeType.Columns[0].HeaderText = "Department ID";
                 dgvEmployeeType.Columns[0].Width = 120;
 
                 dgvEmployeeType.Columns[1].HeaderText = "Name";
@@ -30,7 +30,7 @@ namespace Hotel.EmployeeType
 
             }
         }
-        public frmEmployeeType()
+        public frmListDepatment()
         {
             InitializeComponent();
         }
@@ -51,7 +51,7 @@ namespace Hotel.EmployeeType
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmAddOrUpdateEmployeeType form = new frmAddOrUpdateEmployeeType();
+            frmAddOrUpdateDepartment form = new frmAddOrUpdateDepartment();
             form.ShowDialog();
             _loadData();
 
@@ -60,7 +60,7 @@ namespace Hotel.EmployeeType
         private void dToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             int employeeTypId = (int)dgvEmployeeType.CurrentRow.Cells[0].Value;
-            frmAddOrUpdateEmployeeType form = new frmAddOrUpdateEmployeeType(employeeTypId);
+            frmAddOrUpdateDepartment form = new frmAddOrUpdateDepartment(employeeTypId);
             form.ShowDialog();
             _loadData();
 
@@ -68,7 +68,7 @@ namespace Hotel.EmployeeType
 
         private void dToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddOrUpdateEmployeeType form = new frmAddOrUpdateEmployeeType();
+            frmAddOrUpdateDepartment form = new frmAddOrUpdateDepartment();
             form.ShowDialog();
             _loadData();
         }
@@ -84,7 +84,7 @@ namespace Hotel.EmployeeType
             {
                 int employeeTypId = (int)dgvEmployeeType.CurrentRow.Cells[0].Value;
 
-                if (clsEmployeeTypeBuisness.deleteEmployeeType(employeeTypId))
+                if (clsDepartmentBuisness.deleteDepartment(employeeTypId))
                 {
                     MessageBox.Show("EmployeeType Delete Seccesffuly", "Done", MessageBoxButtons.OK);
                     _loadData();

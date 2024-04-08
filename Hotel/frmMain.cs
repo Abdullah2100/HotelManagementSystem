@@ -27,7 +27,7 @@ namespace Hotel
 
         private void employeeTypeToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            frmEmployeeType form = new frmEmployeeType();
+            frmListDepatment form = new frmListDepatment();
             form.ShowDialog();
         }
     }

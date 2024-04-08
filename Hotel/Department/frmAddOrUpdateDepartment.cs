@@ -4,20 +4,20 @@ using System.Windows.Forms;
 
 namespace Hotel.EmployeeType
 {
-    public partial class frmAddOrUpdateEmployeeType : Form
+    public partial class frmAddOrUpdateDepartment : Form
     {
         enum enMode { add, update };
         private enMode _mode { get; set; }
 
         private int _employeeTypeId = 0;
-        private clsEmployeeTypeBuisness _employeeType;
-        public frmAddOrUpdateEmployeeType()
+        private clsDepartmentBuisness _employeeType;
+        public frmAddOrUpdateDepartment()
         {
             InitializeComponent();
             _mode = enMode.add;
         }
 
-        public frmAddOrUpdateEmployeeType(int employeeTypeID)
+        public frmAddOrUpdateDepartment(int employeeTypeID)
         {
             InitializeComponent();
             _mode = enMode.update;
@@ -28,13 +28,13 @@ namespace Hotel.EmployeeType
         {
             if (_mode == enMode.add)
             {
-                _employeeType = new clsEmployeeTypeBuisness();
-                lbTitle.Text = "Add New EmployeeType";
+                _employeeType = new clsDepartmentBuisness();
+                lbTitle.Text = "Add New Department";
                 btnSave.Text = "Add";
             }
             else
             {
-                lbTitle.Text = "Update EmployeeType";
+                lbTitle.Text = "Update Department";
                 btnSave.Text = "Update";
             }
             txtName.Text = "";
@@ -42,7 +42,7 @@ namespace Hotel.EmployeeType
 
         private void _loadDate()
         {
-            _employeeType = clsEmployeeTypeBuisness.findEmployeeTypeByID(_employeeTypeId);
+            _employeeType = clsDepartmentBuisness.findDepartmentByID(_employeeTypeId);
             if (_employeeType == null)
             {
                 MessageBox.Show("EmployeeType Not Found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

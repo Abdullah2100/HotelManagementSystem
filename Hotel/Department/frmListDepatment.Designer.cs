@@ -1,6 +1,6 @@
 ﻿namespace Hotel.EmployeeType
 {
-    partial class frmEmployeeType
+    partial class frmListDepatment
     {
         /// <summary>
         /// Required designer variable.
@@ -31,14 +31,14 @@
             this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvEmployeeType = new System.Windows.Forms.DataGridView();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lbRecurdNumber = new System.Windows.Forms.Label();
             this.cmsEmployeeType = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.dToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.dToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lbRecurdNumber = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployeeType)).BeginInit();
@@ -51,11 +51,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(169, 319);
+            this.label1.Location = new System.Drawing.Point(198, 318);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(537, 54);
+            this.label1.Size = new System.Drawing.Size(454, 54);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Employee Type System";
+            this.label1.Text = "Department System";
             // 
             // dgvEmployeeType
             // 
@@ -71,6 +71,38 @@
             this.dgvEmployeeType.RowTemplate.Height = 24;
             this.dgvEmployeeType.Size = new System.Drawing.Size(727, 272);
             this.dgvEmployeeType.TabIndex = 2;
+            // 
+            // cmsEmployeeType
+            // 
+            this.cmsEmployeeType.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsEmployeeType.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dToolStripMenuItem,
+            this.dToolStripMenuItem1,
+            this.dToolStripMenuItem2});
+            this.cmsEmployeeType.Name = "cmsEmployeeType";
+            this.cmsEmployeeType.Size = new System.Drawing.Size(229, 76);
+            this.cmsEmployeeType.Opening += new System.ComponentModel.CancelEventHandler(this.cmsEmployeeType_Opening);
+            // 
+            // dToolStripMenuItem
+            // 
+            this.dToolStripMenuItem.Name = "dToolStripMenuItem";
+            this.dToolStripMenuItem.Size = new System.Drawing.Size(228, 24);
+            this.dToolStripMenuItem.Text = "Add EmployeeType";
+            this.dToolStripMenuItem.Click += new System.EventHandler(this.dToolStripMenuItem_Click);
+            // 
+            // dToolStripMenuItem1
+            // 
+            this.dToolStripMenuItem1.Name = "dToolStripMenuItem1";
+            this.dToolStripMenuItem1.Size = new System.Drawing.Size(228, 24);
+            this.dToolStripMenuItem1.Text = "Update EmployeeType";
+            this.dToolStripMenuItem1.Click += new System.EventHandler(this.dToolStripMenuItem1_Click);
+            // 
+            // dToolStripMenuItem2
+            // 
+            this.dToolStripMenuItem2.Name = "dToolStripMenuItem2";
+            this.dToolStripMenuItem2.Size = new System.Drawing.Size(228, 24);
+            this.dToolStripMenuItem2.Text = "Delete EmployeeType";
+            this.dToolStripMenuItem2.Click += new System.EventHandler(this.dToolStripMenuItem2_Click);
             // 
             // btnClose
             // 
@@ -111,38 +143,6 @@
             this.lbRecurdNumber.TabIndex = 6;
             this.lbRecurdNumber.Text = "0";
             // 
-            // cmsEmployeeType
-            // 
-            this.cmsEmployeeType.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.cmsEmployeeType.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dToolStripMenuItem,
-            this.dToolStripMenuItem1,
-            this.dToolStripMenuItem2});
-            this.cmsEmployeeType.Name = "cmsEmployeeType";
-            this.cmsEmployeeType.Size = new System.Drawing.Size(229, 104);
-            this.cmsEmployeeType.Opening += new System.ComponentModel.CancelEventHandler(this.cmsEmployeeType_Opening);
-            // 
-            // dToolStripMenuItem
-            // 
-            this.dToolStripMenuItem.Name = "dToolStripMenuItem";
-            this.dToolStripMenuItem.Size = new System.Drawing.Size(228, 24);
-            this.dToolStripMenuItem.Text = "Add EmployeeType";
-            this.dToolStripMenuItem.Click += new System.EventHandler(this.dToolStripMenuItem_Click);
-            // 
-            // dToolStripMenuItem1
-            // 
-            this.dToolStripMenuItem1.Name = "dToolStripMenuItem1";
-            this.dToolStripMenuItem1.Size = new System.Drawing.Size(228, 24);
-            this.dToolStripMenuItem1.Text = "Update EmployeeType";
-            this.dToolStripMenuItem1.Click += new System.EventHandler(this.dToolStripMenuItem1_Click);
-            // 
-            // dToolStripMenuItem2
-            // 
-            this.dToolStripMenuItem2.Name = "dToolStripMenuItem2";
-            this.dToolStripMenuItem2.Size = new System.Drawing.Size(228, 24);
-            this.dToolStripMenuItem2.Text = "Delete EmployeeType";
-            this.dToolStripMenuItem2.Click += new System.EventHandler(this.dToolStripMenuItem2_Click);
-            // 
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.White;
@@ -164,7 +164,7 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // frmEmployeeType
+            // frmListDepatment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -177,7 +177,7 @@
             this.Controls.Add(this.dgvEmployeeType);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "frmEmployeeType";
+            this.Name = "frmListDepatment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmEmployeeType";
             this.Load += new System.EventHandler(this.frmEmployeeType_Load);

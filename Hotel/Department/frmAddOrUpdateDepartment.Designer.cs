@@ -1,6 +1,6 @@
 ﻿namespace Hotel.EmployeeType
 {
-    partial class frmAddOrUpdateEmployeeType
+    partial class frmAddOrUpdateDepartment
     {
         /// <summary>
         /// Required designer variable.
@@ -87,15 +87,15 @@
             this.lbTitle.ForeColor = System.Drawing.Color.Red;
             this.lbTitle.Location = new System.Drawing.Point(52, 55);
             this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(530, 54);
+            this.lbTitle.Size = new System.Drawing.Size(487, 54);
             this.lbTitle.TabIndex = 4;
-            this.lbTitle.Text = "Add New EmployeType";
+            this.lbTitle.Text = "Add New Department";
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // frmAddOrUpdateEmployeeType
+            // frmAddOrUpdateDepartment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -105,7 +105,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtName);
-            this.Name = "frmAddOrUpdateEmployeeType";
+            this.Name = "frmAddOrUpdateDepartment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddOrUpdateEmployeeType";
             this.Load += new System.EventHandler(this.frmAddOrUpdateEmployeeType_Load);

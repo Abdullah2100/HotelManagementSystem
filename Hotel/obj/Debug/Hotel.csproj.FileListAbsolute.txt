@@ -1,6 +1,4 @@
 C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.csproj.AssemblyReference.cache
-C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.EmployeeType.frmAddOrUpdateEmployeeType.resources
-C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.EmployeeType.frmEmployeeType.resources
 C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.frmMain.resources
 C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.Properties.Resources.resources
 C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.csproj.GenerateResource.cache
@@ -15,3 +13,5 @@ C:\Users\ali77\source\repos\HotelSystem\Hotel\bin\Debug\HotelData.pdb
 C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.csproj.CopyComplete
 C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.exe
 C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.pdb
+C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.EmployeeType.frmAddOrUpdateDepartment.resources
+C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.EmployeeType.frmListDepatment.resources

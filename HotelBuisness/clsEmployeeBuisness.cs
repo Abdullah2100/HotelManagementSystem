@@ -13,7 +13,7 @@
         public string phone { get; set; }
         public bool isBlock { get; set; }
         public clsPersonBuisness personInfo { get; set; }
-        public clsEmployeeTypeBuisness employeeTypeInfo { get; set; }
+        public clsDepartmentBuisness departmentInfo { get; set; }
 
         public clsEmployeeBuisness()
         {
@@ -28,7 +28,7 @@
             isBlock = false;
         }
 
-        private clsEmployeeBuisness(enMode mode, int id, string userName, string password, int employeeTypeID, int personID, string address, string phone, bool isBlock, clsPersonBuisness personInfo, clsEmployeeTypeBuisness employeeTypeInfo)
+        private clsEmployeeBuisness(enMode mode, int id, string userName, string password, int employeeTypeID, int personID, string address, string phone, bool isBlock, clsPersonBuisness personInfo, clsDepartmentBuisness departmentInfo)
         {
             _mode = mode;
             this.id = id;
@@ -40,9 +40,9 @@
             this.phone = phone;
             this.isBlock = isBlock;
             this.personInfo = personInfo;
-            this.employeeTypeInfo = employeeTypeInfo;
+            this.departmentInfo = departmentInfo;
 
-            employeeTypeInfo = clsEmployeeTypeBuisness.findEmployeeTypeByID(employeeTypeID);
+            departmentInfo = clsDepartmentBuisness.findDepartmentByID(employeeTypeID);
             personInfo = clsPersonBuisness.findPersonByID(personID);
         }
     }

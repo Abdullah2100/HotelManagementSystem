@@ -3,56 +3,56 @@ using System.Data;
 
 namespace HotelBuisness
 {
-    public class clsEmployeeTypeBuisness
+    public class clsDepartmentBuisness
     {
         enum enMode { add, update };
         private enMode _mode { get; set; }
         public int id { get; set; }
         public string name { get; set; }
 
-        public clsEmployeeTypeBuisness()
+        public clsDepartmentBuisness()
         {
             _mode = enMode.add;
             id = 0;
             name = "";
         }
 
-        private clsEmployeeTypeBuisness(enMode mode, int id, string name)
+        private clsDepartmentBuisness(enMode mode, int id, string name)
         {
             _mode = mode;
             this.id = id;
             this.name = name;
         }
 
-        public static clsEmployeeTypeBuisness findEmployeeTypeByID(int id)
+        public static clsDepartmentBuisness findDepartmentByID(int id)
         {
             string name = "";
-            if (clsEmployeeTypeData.findEmployeeTypByID(id, ref name))
+            if (clsDepartmentData.findDepartmentByID(id, ref name))
             {
-                return new clsEmployeeTypeBuisness(enMode.update, id, name);
+                return new clsDepartmentBuisness(enMode.update, id, name);
             }
             return null;
         }
 
-        public static clsEmployeeTypeBuisness findEmployeeTypeByName(string name)
+        public static clsDepartmentBuisness findDepartmentByName(string name)
         {
             int id = 0;
-            if (clsEmployeeTypeData.findEmployeeTypByName(name, ref id))
+            if (clsDepartmentData.findDepartmentByName(name, ref id))
             {
-                return new clsEmployeeTypeBuisness(enMode.update, id, name);
+                return new clsDepartmentBuisness(enMode.update, id, name);
             }
             return null;
         }
 
         private bool _add()
         {
-            this.id = clsEmployeeTypeData.createEmployeeeType(name);
+            this.id = clsDepartmentData.createDepartment(name);
             return (this.id != 0);
         }
 
         private bool _update()
         {
-            return clsEmployeeTypeData.updateEmployeeType(name, id);
+            return clsDepartmentData.updateDepartment(name, id);
         }
 
         public bool save()
@@ -79,19 +79,19 @@ namespace HotelBuisness
             return false;
         }
 
-        public static DataTable getEmployeeTypes()
+        public static DataTable getDepartments()
         {
-            return clsEmployeeTypeData.getEmployeeTypes();
+            return clsDepartmentData.getDepartments();
         }
 
-        public static bool deleteEmployeeType(int id)
+        public static bool deleteDepartment(int id)
         {
-            return clsEmployeeTypeData.deleteEmployeeType(id);
+            return clsDepartmentData.deleteDepartment(id);
         }
 
-        public static bool isEmployeeTypeExistByName(string name)
+        public static bool isDepartmentExistByName(string name)
         {
-            return clsEmployeeTypeData.isEmployeeTypeExistByName(name);
+            return clsDepartmentData.isDepartmentExistByName(name);
         }
     }
 }

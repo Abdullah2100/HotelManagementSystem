@@ -5,12 +5,12 @@ using System.Data.SqlClient;
 
 namespace HotelData
 {
-    public class clsEmployeeTypeData
+    public class clsDepartmentData
     {
 
         static string connectionUrl = ConfigurationManager.ConnectionStrings["urlConnection"].ConnectionString;
 
-        public static bool findEmployeeTypByID
+        public static bool findDepartmentByID
             (
             int id,
             ref string name
@@ -23,7 +23,7 @@ namespace HotelData
                 using (SqlConnection conn = new SqlConnection(connectionUrl))
                 {
                     conn.Open();
-                    string query = @"select * from EmployeeTypes where employeeTypeID = @id";
+                    string query = @"select * from Departments where departmentID = @id";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -52,7 +52,7 @@ namespace HotelData
         }
 
 
-        public static bool findEmployeeTypByName
+        public static bool findDepartmentByName
             (
             string name,
             ref int id
@@ -65,7 +65,7 @@ namespace HotelData
                 using (SqlConnection conn = new SqlConnection(connectionUrl))
                 {
                     conn.Open();
-                    string query = @"select * from EmployeeTypes where name = @name";
+                    string query = @"select * from Departments where name = @name";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
@@ -76,7 +76,7 @@ namespace HotelData
                             if (reader.Read())
                             {
                                 isFound = true;
-                                id = (int)reader["employeeTypeID"];
+                                id = (int)reader["departmentID"];
 
                             }
                         }
@@ -95,7 +95,7 @@ namespace HotelData
 
 
 
-        public static int createEmployeeeType(string name)
+        public static int createDepartment(string name)
         {
             int id = 0;
             try
@@ -104,7 +104,7 @@ namespace HotelData
                 {
                     conn.Open();
                     string query = @"
-                                    insert into EmployeeTypes(name) values(@name);
+                                    insert into Departments(name) values(@name);
                                     select SCOPE_IDENTITY();
                                     ";
 
@@ -133,7 +133,7 @@ namespace HotelData
         }
 
 
-        public static bool updateEmployeeType
+        public static bool updateDepartment
             (
             string name,
              int id
@@ -146,9 +146,9 @@ namespace HotelData
                 {
                     conn.Open();
                     string query = @"
-                                    update EmployeeTypes set 
+                                    update Departments set 
                                     name = @name
-                                    where employeeTypeID = @id
+                                    where departmentID = @id
                                     ";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -177,7 +177,7 @@ namespace HotelData
         }
 
 
-        public static bool deleteEmployeeType(int id)
+        public static bool deleteDepartment(int id)
         {
             bool isDeleted = false;
             try
@@ -185,7 +185,7 @@ namespace HotelData
                 using (SqlConnection conn = new SqlConnection(connectionUrl))
                 {
                     conn.Open();
-                    string query = @"delete EmployeeTypes  where employeeTypeID = @id
+                    string query = @"delete Departments  where departmentID = @id
                                     ";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
@@ -213,7 +213,7 @@ namespace HotelData
 
 
 
-        public static DataTable getEmployeeTypes()
+        public static DataTable getDepartments()
         {
 
             DataTable dtEmployeeType = new DataTable();
@@ -222,7 +222,7 @@ namespace HotelData
                 using (SqlConnection con = new SqlConnection(connectionUrl))
                 {
                     con.Open();
-                    string qery = @"select * from EmployeeType_view";
+                    string qery = @"select * from Department_view";
 
                     using (SqlCommand cmd = new SqlCommand(qery, con))
                     {
@@ -250,7 +250,7 @@ namespace HotelData
             return dtEmployeeType;
         }
 
-        public static bool isEmployeeTypeExistByName(string name)
+        public static bool isDepartmentExistByName(string name)
         {
             bool isBlock = false;
             try
@@ -258,7 +258,7 @@ namespace HotelData
                 using (SqlConnection conn = new SqlConnection(connectionUrl))
                 {
                     conn.Open();
-                    string query = @"select found = 1 from EmployeeTypes where  name = @name ";
+                    string query = @"select found = 1 from Departments where  name = @name ";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
