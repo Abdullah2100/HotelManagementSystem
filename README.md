@@ -1,6 +1,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-This Simple System that simulate  Hotel work. It will have many features like creating Job Title(EmployeeType), Employee,  
+This Simple System that simulate  Hotel work. It will have many features like creating Department, Employee,  
 Customer, Booking Operation, Customer Services, Cleaning and other services 
 this project is under development. 
 
