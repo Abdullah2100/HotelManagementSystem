@@ -12,3 +12,10 @@ this project is under development.
 
 #Project Images
 
+<p align="center">
+  <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_1.png" width="100%" title="hover text">
+  <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_2.png" width="100%" title="hover text">
+  <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_3.png" width="100%" title="hover text">
+  <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_4.png" width="100%" title="hover text"> 
+  <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_5.png" width="100%" title="hover text">
+</p>
