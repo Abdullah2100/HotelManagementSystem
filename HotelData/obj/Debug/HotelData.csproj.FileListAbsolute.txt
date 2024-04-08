@@ -1,0 +1,6 @@
+C:\Users\ali77\source\repos\HotelSystem\HotelData\bin\Debug\HotelData.dll
+C:\Users\ali77\source\repos\HotelSystem\HotelData\bin\Debug\HotelData.pdb
+C:\Users\ali77\source\repos\HotelSystem\HotelData\obj\Debug\HotelData.csproj.AssemblyReference.cache
+C:\Users\ali77\source\repos\HotelSystem\HotelData\obj\Debug\HotelData.csproj.CoreCompileInputs.cache
+C:\Users\ali77\source\repos\HotelSystem\HotelData\obj\Debug\HotelData.dll
+C:\Users\ali77\source\repos\HotelSystem\HotelData\obj\Debug\HotelData.pdb
