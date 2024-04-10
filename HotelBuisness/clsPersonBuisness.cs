@@ -11,9 +11,9 @@ namespace HotelBuisness
         public int id { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
+        public string nationalNo { get; set; }
         public DateTime brithDay { get; set; }
         public DateTime createdDate { get; set; }
-        public bool isBlock { get; set; }
 
         public clsPersonBuisness()
         {
@@ -21,13 +21,13 @@ namespace HotelBuisness
             id = 0;
             firstName = "";
             lastName = "";
+            nationalNo = "";
             brithDay = DateTime.Now;
             createdDate = DateTime.Now;
-            isBlock = false;
             _mode = enMode.add;
         }
 
-        private clsPersonBuisness(enMode mode, int id, string firstName, string lastName, DateTime brithDay, DateTime createdDate, bool isBlock)
+        private clsPersonBuisness(enMode mode, int id, string firstName, string lastName, DateTime brithDay, DateTime createdDate, string nationalNo)
         {
             _mode = mode;
             this.id = id;
@@ -35,7 +35,7 @@ namespace HotelBuisness
             this.lastName = lastName;
             this.brithDay = brithDay;
             this.createdDate = createdDate;
-            this.isBlock = isBlock;
+            this.nationalNo = nationalNo;
             this._mode = mode;
         }
 
@@ -44,13 +44,29 @@ namespace HotelBuisness
         {
             string firstName = "";
             string lastName = "";
+            string nationalNo = "";
             DateTime brithDay = DateTime.Now;
             DateTime createdDate = DateTime.Now;
-            bool isBlock = false;
 
-            if (clsPeoplesData.findPersonByID(id, ref firstName, ref lastName, ref brithDay, ref createdDate, ref isBlock))
+            if (clsPeoplesData.findPerson(id, ref firstName, ref lastName, ref brithDay, ref createdDate, ref nationalNo))
             {
-                return new clsPersonBuisness(enMode.update, id, firstName, lastName, brithDay, createdDate, isBlock);
+                return new clsPersonBuisness(enMode.update, id, firstName, lastName, brithDay, createdDate, nationalNo);
+            }
+
+            return null;
+        }
+
+        public static clsPersonBuisness findPersonByNationalNo(string nationalNo)
+        {
+            string firstName = "";
+            string lastName = "";
+            int id = 0;
+            DateTime brithDay = DateTime.Now;
+            DateTime createdDate = DateTime.Now;
+
+            if (clsPeoplesData.findPerson(nationalNo, ref id, ref firstName, ref lastName, ref brithDay, ref createdDate))
+            {
+                return new clsPersonBuisness(enMode.update, id, firstName, lastName, brithDay, createdDate, nationalNo);
             }
 
             return null;
@@ -58,13 +74,13 @@ namespace HotelBuisness
 
         private bool _add()
         {
-            this.id = clsPeoplesData.createPerson(firstName, lastName, brithDay, createdDate);
+            this.id = clsPeoplesData.createPerson(firstName, lastName, brithDay, createdDate, nationalNo);
             return (id != 0);
         }
 
         private bool _update()
         {
-            return clsPeoplesData.updatePerson(id, firstName, lastName, brithDay, isBlock);
+            return clsPeoplesData.updatePerson(id, firstName, lastName, brithDay, nationalNo);
         }
 
         public bool save()
@@ -75,7 +91,7 @@ namespace HotelBuisness
                     {
                         if (_add())
                         {
-                            _mode = enMode.update;
+                            //       _mode = enMode.update;
                             return true;
                         }
                         return false;
@@ -100,14 +116,10 @@ namespace HotelBuisness
             return clsPeoplesData.deletePersonByID(id);
         }
 
-        public static bool blockPersonByID(int id)
-        {
-            return clsPeoplesData.blockPersonByID(id);
-        }
 
-        public static bool isPersonBlock(int id)
+        public static bool isPersonExistByNationalNo(string nationalNo)
         {
-            return clsPeoplesData.isPersonBlocked(id);
+            return clsPeoplesData.isPersonExistByNationalNo(nationalNo);
         }
 
     }

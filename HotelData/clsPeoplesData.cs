@@ -9,14 +9,14 @@ namespace HotelData
 
         static string connectionUrl = ConfigurationManager.ConnectionStrings["urlConnection"].ConnectionString;
 
-        public static bool findPersonByID
+        public static bool findPerson
             (
             int personID,
             ref string firstName,
             ref string lastName,
             ref DateTime brithDay,
             ref DateTime createdDate,
-            ref bool isBlock
+            ref string nationalNo
             )
         {
             bool isFound = false;
@@ -39,9 +39,60 @@ namespace HotelData
                                 isFound = true;
                                 firstName = (string)reader["firstName"];
                                 lastName = (string)reader["lastName"];
+                                nationalNo = (string)reader["nationalNo"];
                                 brithDay = (DateTime)reader["brithDay"];
                                 createdDate = (DateTime)reader["createdDate"];
-                                isBlock = (bool)reader["isBlock"];
+
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error is :" + ex.ToString());
+
+            }
+
+
+            return isFound;
+        }
+
+
+        public static bool findPerson
+            (
+            string nationalNo,
+            ref int personID,
+            ref string firstName,
+            ref string lastName,
+            ref DateTime brithDay,
+            ref DateTime createdDate
+            )
+        {
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionUrl))
+                {
+                    conn.Open();
+                    string query = @"select * from Peoples where nationalNo = @nationalNo";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+
+                        cmd.Parameters.AddWithValue("@nationalNo", nationalNo);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                isFound = true;
+                                personID = (int)reader["personID"];
+                                firstName = (string)reader["firstName"];
+                                lastName = (string)reader["lastName"];
+                                nationalNo = (string)reader["nationalNo"];
+                                brithDay = (DateTime)reader["brithDay"];
+                                createdDate = (DateTime)reader["createdDate"];
 
                             }
                         }
@@ -64,7 +115,8 @@ namespace HotelData
          string firstName,
          string lastName,
         DateTime brithDay,
-        DateTime createdDate
+        DateTime createdDate,
+        string nationalNo
             )
         {
             int personID = 0;
@@ -74,8 +126,8 @@ namespace HotelData
                 {
                     conn.Open();
                     string query = @"
-                                    insert into Peoples(firstName,lastName,brithDay ,createdDate)
-                                    values(@firstName,@lastName,@brithDay ,@createdDate);
+                                    insert into Peoples(firstName,lastName,brithDay ,createdDate,nationalNo)
+                                    values(@firstName,@lastName,@brithDay ,@createdDate,@nationalNo);
                                     select SCOPE_IDENTITY();
                                     ";
 
@@ -86,6 +138,7 @@ namespace HotelData
                         cmd.Parameters.AddWithValue("@lastName", lastName);
                         cmd.Parameters.AddWithValue("@brithDay", brithDay);
                         cmd.Parameters.AddWithValue("@createdDate", createdDate);
+                        cmd.Parameters.AddWithValue("@nationalNo", nationalNo);
 
 
                         object result = cmd.ExecuteScalar();
@@ -113,7 +166,7 @@ namespace HotelData
             string firstName,
             string lastName,
             DateTime brithDay,
-            bool isBlock
+            string nationalNo
             )
         {
             bool isUpdate = false;
@@ -127,7 +180,7 @@ namespace HotelData
                                     firstName = @firstName,
                                     lastName = @lastName,
                                     brithDay = @brithDay,
-                                    isBlock = @isBlock 
+                                    nationalNo = @nationalNo
                                     where personID = @personID
                                     ";
 
@@ -138,7 +191,7 @@ namespace HotelData
                         cmd.Parameters.AddWithValue("@firstName", firstName);
                         cmd.Parameters.AddWithValue("@lastName", lastName);
                         cmd.Parameters.AddWithValue("@brithDay", brithDay);
-                        cmd.Parameters.AddWithValue("@isBlock", isBlock);
+                        cmd.Parameters.AddWithValue("@nationalNo", nationalNo);
 
 
                         int result = cmd.ExecuteNonQuery();
@@ -202,42 +255,7 @@ namespace HotelData
 
 
 
-        public static bool blockPersonByID(int personID)
-        {
-            bool isDeleted = false;
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionUrl))
-                {
-                    conn.Open();
-                    string query = @"update  Peoples set isBlock =1   where personID = @personID
-                                    ";
-
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-
-                        cmd.Parameters.AddWithValue("@personID", personID);
-
-
-                        int result = cmd.ExecuteNonQuery();
-                        if (result > 0)
-                        {
-                            isDeleted = true;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error is :" + ex.ToString());
-
-            }
-
-            return isDeleted;
-        }
-
-
-        public static bool isPersonBlocked(int personID)
+        public static bool isPersonExistByNationalNo(string nationalNo)
         {
             bool isBlock = false;
             try
@@ -245,12 +263,12 @@ namespace HotelData
                 using (SqlConnection conn = new SqlConnection(connectionUrl))
                 {
                     conn.Open();
-                    string query = @"select found = 1 from Peoples where  isBlock =1 and personID = @personID";
+                    string query = @"select found = 1 from Peoples where  isBlock =1 and nationalNo = @nationalNo";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
 
-                        cmd.Parameters.AddWithValue("@personID", personID);
+                        cmd.Parameters.AddWithValue("@nationalNo", nationalNo);
 
 
                         using (SqlDataReader reader = cmd.ExecuteReader())

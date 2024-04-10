@@ -27,7 +27,7 @@ namespace HotelBuisness
         public static clsDepartmentBuisness findDepartmentByID(int id)
         {
             string name = "";
-            if (clsDepartmentData.findDepartmentByID(id, ref name))
+            if (clsDepartmentData.findDepartment(id, ref name))
             {
                 return new clsDepartmentBuisness(enMode.update, id, name);
             }
@@ -37,7 +37,7 @@ namespace HotelBuisness
         public static clsDepartmentBuisness findDepartmentByName(string name)
         {
             int id = 0;
-            if (clsDepartmentData.findDepartmentByName(name, ref id))
+            if (clsDepartmentData.findDepartment(name, ref id))
             {
                 return new clsDepartmentBuisness(enMode.update, id, name);
             }

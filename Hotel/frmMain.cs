@@ -1,4 +1,5 @@
-﻿using Hotel.EmployeeType;
+﻿using Hotel.Employee;
+using Hotel.EmployeeType;
 using System.Windows.Forms;
 
 namespace Hotel
@@ -22,7 +23,8 @@ namespace Hotel
 
         private void employeesToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-
+            frmListEmployee form = new frmListEmployee();
+            form.ShowDialog();
         }
 
         private void employeeTypeToolStripMenuItem_Click(object sender, System.EventArgs e)

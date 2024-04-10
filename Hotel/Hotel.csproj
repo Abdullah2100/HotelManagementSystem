@@ -59,12 +59,38 @@
     <Compile Include="Department\frmListDepatment.Designer.cs">
       <DependentUpon>frmListDepatment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Employee\Controller\ctrEmployeeCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Employee\Controller\ctrEmployeeCard.Designer.cs">
+      <DependentUpon>ctrEmployeeCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\frmAddOrUpdateEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee\frmAddOrUpdateEmployee.Designer.cs">
+      <DependentUpon>frmAddOrUpdateEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\frmEmployeeInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee\frmEmployeeInfo.Designer.cs">
+      <DependentUpon>frmEmployeeInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\frmListEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employee\frmListEmployee.Designer.cs">
+      <DependentUpon>frmListEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="General\clsEmployee.cs" />
+    <Compile Include="General\clsUtil.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Department\frmAddOrUpdateDepartment.resx">
@@ -72,6 +98,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Department\frmListDepatment.resx">
       <DependentUpon>frmListDepatment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\Controller\ctrEmployeeCard.resx">
+      <DependentUpon>ctrEmployeeCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\frmAddOrUpdateEmployee.resx">
+      <DependentUpon>frmAddOrUpdateEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\frmEmployeeInfo.resx">
+      <DependentUpon>frmEmployeeInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employee\frmListEmployee.resx">
+      <DependentUpon>frmListEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -115,13 +153,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Employee\" />
+    <None Include="Resources\businessmen.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\jobType-removebg-preview.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\employee1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\personHolder.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

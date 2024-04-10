@@ -9,16 +9,16 @@ namespace HotelData
     {
         static string connectionUrl = ConfigurationManager.ConnectionStrings["urlConnection"].ConnectionString;
 
-        public static bool findEmployeeByID
-            (
+        public static bool findEmployee(
           int id,
           ref string userName,
           ref string password,
-          ref int employeeTypeID,
+          ref int departmentID,
           ref int personID,
           ref string address,
           ref string phone,
-          ref bool isBlock
+          ref bool isBlock,
+          ref string image
             )
         {
             bool isFound = false;
@@ -38,6 +38,7 @@ namespace HotelData
                         {
                             if (reader.Read())
                             {
+                                isFound = true;
                                 if (reader["userName"] != DBNull.Value)
                                     userName = (string)reader["userName"];
                                 else
@@ -48,7 +49,12 @@ namespace HotelData
                                 else
                                     password = "";
 
-                                employeeTypeID = (int)reader["employeeTypeID"];
+                                if (reader["image"] != DBNull.Value)
+                                    image = (string)reader["image"];
+                                else
+                                    image = "";
+
+                                departmentID = (int)reader["departmentID"];
 
                                 personID = (int)reader["personID"];
                                 address = (string)reader["address"];
@@ -76,16 +82,17 @@ namespace HotelData
 
 
 
-        public static bool findEmployeeByUserNameAndPassword
-         (
+
+        public static bool findEmployee(
         string userName,
         string password,
         ref int id,
-        ref int employeeTypeID,
+        ref int departmentID,
         ref int personID,
         ref string address,
         ref string phone,
-        ref bool isBlock
+        ref bool isBlock,
+        ref string image
          )
         {
             bool isFound = false;
@@ -109,12 +116,16 @@ namespace HotelData
 
                                 id = (int)reader["employeeID"];
 
-                                employeeTypeID = (int)reader["employeeTypeID"];
+                                departmentID = (int)reader["departmentID"];
 
                                 personID = (int)reader["personID"];
                                 address = (string)reader["address"];
                                 phone = (string)reader["phone"];
                                 isBlock = (bool)reader["isBlock"];
+                                if (reader["image"] != DBNull.Value)
+                                    image = (string)reader["image"];
+                                else
+                                    image = "";
 
 
                             }
@@ -138,16 +149,17 @@ namespace HotelData
 
 
 
-        public static bool findEmployeeByPhone
-            (
+
+        public static bool findEmployee(
             string phone,
             ref int id,
             ref string userName,
             ref string password,
-            ref int employeeTypeID,
+            ref int departmentID,
             ref int personID,
             ref string address,
-            ref bool isBlock
+            ref bool isBlock,
+            ref string image
       )
         {
             bool isFound = false;
@@ -179,7 +191,12 @@ namespace HotelData
                                 else
                                     password = "";
 
-                                employeeTypeID = (int)reader["employeeTypeID"];
+                                if (reader["image"] != DBNull.Value)
+                                    image = (string)reader["image"];
+                                else
+                                    image = "";
+
+                                departmentID = (int)reader["departmentID"];
 
                                 personID = (int)reader["personID"];
                                 address = (string)reader["address"];
@@ -207,16 +224,15 @@ namespace HotelData
         public static int createEmployee
             (
             string phone,
-
-            int id,
             string userName,
             string password,
-            int employeeTypeID,
+            int departmentID,
             int personID,
-            string address
+            string address,
+            string image
       )
         {
-            int employeeID = 0;
+            int id = 0;
 
             try
             {
@@ -225,8 +241,8 @@ namespace HotelData
                     con.Open();
                     string qery = @"
                            insert into  Employees 
-                           (userName,password,employeeTypeID,personID,address,phone)
-                           values (@userName,@password,@employeeTypeID,@personID,@address,@phone);
+                           (userName,password,departmentID,personID,address,phone,image)
+                           values (@userName,@password,@departmentID,@personID,@address,@phone,@image);
                            select SCOPE_IDENTITY()";
 
                     using (SqlCommand cmd = new SqlCommand(qery, con))
@@ -238,15 +254,21 @@ namespace HotelData
                             cmd.Parameters.AddWithValue("@password", DBNull.Value);
                         else
                             cmd.Parameters.AddWithValue("@password", password);
-                        cmd.Parameters.AddWithValue("@employeeTypeID", employeeTypeID);
+
+                        if (image == "")
+                            cmd.Parameters.AddWithValue("@image", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@image", image);
+
+                        cmd.Parameters.AddWithValue("@departmentID", departmentID);
                         cmd.Parameters.AddWithValue("@personID", personID);
-                        cmd.Parameters.AddWithValue("@address", phone);
+                        cmd.Parameters.AddWithValue("@address", address);
                         cmd.Parameters.AddWithValue("@phone", phone);
 
                         object result = cmd.ExecuteScalar();
                         if (result != null && int.TryParse(result.ToString(), out int resultID))
                         {
-                            employeeID = resultID;
+                            id = resultID;
                         }
 
                     }
@@ -261,7 +283,7 @@ namespace HotelData
             }
 
 
-            return employeeID;
+            return id;
         }
 
 
@@ -273,10 +295,11 @@ namespace HotelData
             string phone,
             string userName,
             string password,
-            int employeeTypeID,
+            int departmentID,
             int personID,
             string address,
-            bool isBlock
+            bool isBlock,
+            string image
             )
         {
             bool isUpdate = false;
@@ -290,11 +313,12 @@ namespace HotelData
                            update  Employees  set 
                            userName = @userName,
                            password = @password,
-                           employeeTypeID =  @employeeTypeID,
+                           departmentID =  @departmentID,
                            personID = @personID,
                            address = @address,
                            phone = @phone,
-                           isBlock = @isBlock
+                           isBlock = @isBlock,
+                           image = @image
                            where employeeID = @id";
 
                     using (SqlCommand cmd = new SqlCommand(qery, con))
@@ -309,7 +333,13 @@ namespace HotelData
                             cmd.Parameters.AddWithValue("@password", DBNull.Value);
                         else
                             cmd.Parameters.AddWithValue("@password", password);
-                        cmd.Parameters.AddWithValue("@employeeTypeID", employeeTypeID);
+
+                        if (image == "")
+                            cmd.Parameters.AddWithValue("@image", DBNull.Value);
+                        else
+                            cmd.Parameters.AddWithValue("@image", image);
+
+                        cmd.Parameters.AddWithValue("@departmentID", departmentID);
                         cmd.Parameters.AddWithValue("@personID", personID);
                         cmd.Parameters.AddWithValue("@address", address);
                         cmd.Parameters.AddWithValue("@isBlock", isBlock);
@@ -338,7 +368,7 @@ namespace HotelData
 
 
 
-        public static bool deleteEmployeeByID(int id)
+        public static bool deleteEmployeeByID(int personID)
         {
             bool isDeleted = false;
 
@@ -347,19 +377,19 @@ namespace HotelData
                 using (SqlConnection con = new SqlConnection(connectionUrl))
                 {
                     con.Open();
-                    string qery = @"SP_deletEmployeeByID";
+                    string qery = @"SP_deletEmployeeByID @personID = @personID";
 
                     using (SqlCommand cmd = new SqlCommand(qery, con))
                     {
 
+                        //'@employeeID
+                        cmd.Parameters.AddWithValue("@personID", personID);
 
-                        cmd.Parameters.AddWithValue("@employeeID", id);
 
-
-                        object result = cmd.ExecuteScalar();
-                        if (result != null && int.TryParse(result.ToString(), out int resultID))
+                        int result = cmd.ExecuteNonQuery();
+                        if (result != 0)
                         {
-                            isDeleted = resultID == 1 ? true : false;
+                            isDeleted = true;
                         }
 
                     }
@@ -429,9 +459,6 @@ namespace HotelData
                     using (SqlCommand cmd = new SqlCommand(qery, con))
                     {
 
-
-
-
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
 
@@ -455,6 +482,162 @@ namespace HotelData
             return dtEmployee;
         }
 
+
+        public static bool changeEmployeeState(int id, bool isBlock)
+        {
+            bool employeeState = false;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionUrl))
+                {
+                    con.Open();
+                    string qery = @"update  Employees set isBlock = @isBlock  where employeeID = @id";
+
+                    using (SqlCommand cmd = new SqlCommand(qery, con))
+                    {
+
+
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters.AddWithValue("@isBlock", isBlock);
+
+
+                        object result = cmd.ExecuteScalar();
+                        if (result != null)
+                        {
+                            employeeState = true;
+                        }
+
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("Error is :" + ex.Message);
+            }
+
+
+            return employeeState;
+        }
+
+
+        public static bool isEmployeeBlock(int id)
+        {
+            bool isBlock = false;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionUrl))
+                {
+                    con.Open();
+                    string qery = @"select found = 1 from Employees  where employeeID = @id and isBlock = 0";
+
+                    using (SqlCommand cmd = new SqlCommand(qery, con))
+                    {
+
+
+                        cmd.Parameters.AddWithValue("@id", id);
+
+
+                        object result = cmd.ExecuteScalar();
+                        if (result != null)
+                        {
+                            isBlock = true;
+                        }
+
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("Error is :" + ex.Message);
+            }
+
+
+            return isBlock;
+        }
+
+
+        public static bool isEmployeeExistByUserName(string userName)
+        {
+            bool isExist = false;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionUrl))
+                {
+                    con.Open();
+                    string qery = @"select found = 1 from Employees  where userName = @userName ";
+
+                    using (SqlCommand cmd = new SqlCommand(qery, con))
+                    {
+
+
+                        cmd.Parameters.AddWithValue("@userName", userName);
+
+
+                        object result = cmd.ExecuteScalar();
+                        if (result != null)
+                        {
+                            isExist = true;
+                        }
+
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("Error is :" + ex.Message);
+            }
+
+
+            return isExist;
+        }
+
+
+        public static bool isEmployeeExistByPhone(string phone)
+        {
+            bool isExist = false;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionUrl))
+                {
+                    con.Open();
+                    string qery = @"select found = 1 from Employees  where phone = @phone ";
+
+                    using (SqlCommand cmd = new SqlCommand(qery, con))
+                    {
+
+
+                        cmd.Parameters.AddWithValue("@phone", phone);
+
+
+                        object result = cmd.ExecuteScalar();
+                        if (result != null)
+                        {
+                            isExist = true;
+                        }
+
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine("Error is :" + ex.Message);
+            }
+
+
+            return isExist;
+        }
 
     }
 }

@@ -10,7 +10,7 @@ namespace HotelData
 
         static string connectionUrl = ConfigurationManager.ConnectionStrings["urlConnection"].ConnectionString;
 
-        public static bool findDepartmentByID
+        public static bool findDepartment
             (
             int id,
             ref string name
@@ -52,7 +52,7 @@ namespace HotelData
         }
 
 
-        public static bool findDepartmentByName
+        public static bool findDepartment
             (
             string name,
             ref int id

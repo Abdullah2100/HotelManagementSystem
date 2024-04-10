@@ -45,7 +45,7 @@ namespace Hotel.EmployeeType
             _employeeType = clsDepartmentBuisness.findDepartmentByID(_employeeTypeId);
             if (_employeeType == null)
             {
-                MessageBox.Show("EmployeeType Not Found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Department Not Found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
                 return;
             }

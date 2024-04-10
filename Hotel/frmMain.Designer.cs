@@ -52,14 +52,14 @@
             this.employeeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1460, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1460, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // bookingApplicationToolStripMenuItem
             // 
             this.bookingApplicationToolStripMenuItem.Name = "bookingApplicationToolStripMenuItem";
-            this.bookingApplicationToolStripMenuItem.Size = new System.Drawing.Size(159, 24);
+            this.bookingApplicationToolStripMenuItem.Size = new System.Drawing.Size(159, 26);
             this.bookingApplicationToolStripMenuItem.Text = "Booking Application";
             // 
             // customerToolStripMenuItem
@@ -69,7 +69,7 @@
             this.familyRelationsToolStripMenuItem});
             this.customerToolStripMenuItem.Image = global::Hotel.Properties.Resources.customers;
             this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
-            this.customerToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
+            this.customerToolStripMenuItem.Size = new System.Drawing.Size(106, 26);
             this.customerToolStripMenuItem.Text = "Customer";
             // 
             // customerListToolStripMenuItem
@@ -91,20 +91,20 @@
             this.employeeTypeToolStripMenuItem});
             this.employeeToolStripMenuItem.Image = global::Hotel.Properties.Resources.employeeSmalIcon;
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(109, 24);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(109, 26);
             this.employeeToolStripMenuItem.Text = "Employee";
             // 
             // employeesToolStripMenuItem
             // 
             this.employeesToolStripMenuItem.Name = "employeesToolStripMenuItem";
-            this.employeesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.employeesToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
             this.employeesToolStripMenuItem.Text = "Employees";
             this.employeesToolStripMenuItem.Click += new System.EventHandler(this.employeesToolStripMenuItem_Click);
             // 
             // employeeTypeToolStripMenuItem
             // 
             this.employeeTypeToolStripMenuItem.Name = "employeeTypeToolStripMenuItem";
-            this.employeeTypeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.employeeTypeToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
             this.employeeTypeToolStripMenuItem.Text = "Department";
             this.employeeTypeToolStripMenuItem.Click += new System.EventHandler(this.employeeTypeToolStripMenuItem_Click);
             // 
@@ -112,9 +112,9 @@
             // 
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 28);
+            this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1460, 802);
+            this.panel1.Size = new System.Drawing.Size(1460, 800);
             this.panel1.TabIndex = 1;
             // 
             // pictureBox1
@@ -123,7 +123,7 @@
             this.pictureBox1.Image = global::Hotel.Properties.Resources.THEME_HOTEL_SIGN_FIVE_STARS_FACADE_BUILDING_GettyImages_1320779330_3_removebg_preview;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1460, 802);
+            this.pictureBox1.Size = new System.Drawing.Size(1460, 800);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;

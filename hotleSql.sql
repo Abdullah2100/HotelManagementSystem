@@ -1,10 +1,9 @@
 create database HotelDB;
 
- go
-
+go
 use HotelDB
 
-go
+
 
 create table Peoples(
 personID int identity(1,1) primary key, 
@@ -12,7 +11,8 @@ firstName nvarchar(20) not null,
 lastName nvarchar(20) not null ,
 brithDay DateTime not null,
 createdDate Datetime default getDate(),
-isBlock bit default 0)
+nationalNo nvarchar(15) not null
+)
 
 
 create table Departments(
@@ -27,18 +27,13 @@ userName  nvarchar(50) null,
 password  nvarchar(max)null,
 departmentID int references Departments(departmentID),
 personID int references Peoples(personID),
-address nvarchar(max),
+address nvarchar(200),
 phone nvarchar(15) UNIQUE,
+image nvarchar(max) not null,
 isBlock bit default 0
 )
 
-
-
-create table FamilyRelations(
-familyRelationID int identity(1,1)primary key,
-name nvarchar(50)
-)
-
+go
 create view Department_view as 
 select  
 d.departmentID,
@@ -46,23 +41,31 @@ d.name,
 (select count(*) from Employees where departmentID = d.departmentID)as employeeNumber
 from Departments d
 
+go
+
 create view Employee_view as 
 select 
 e.employeeID ,
 e.personID,
-et.name as 'job title',
+d.name as department,
 e.userName ,
 (p.firstName + '  '+p.lastName) as fullName,
-Year(p.brithDay)-Year(getdate()) as age,
+Year(getdate())-Year(p.brithDay) as age,
 p.createdDate,
-p.isBlock
+e.isBlock
 from Employees e 
-inner join EmployeeTypes et
-on e.employeeTypeID = et.employeeTypeID
+inner join Departments d
+on e.departmentID = d.departmentID
 inner join Peoples p 
-on p.personID = e.personID
-where p.isBlock != 0;
+on p.personID = e.personID;
 
+
+
+
+create table FamilyRelations(
+familyRelationID int identity(1,1)primary key,
+name nvarchar(50)
+)
 
 
 
@@ -83,29 +86,30 @@ addBy int references Employees(employeeID),
 
 
 create PROCEDURE  SP_deletEmployeeByID
-    @employeeID int
+    @personID int
 as 
 BEGIN
-     Declare  @personID int;
-     select @personID = personID from Employees where employeeID = @employeeID;
-
+    
 begin transaction;
-
 begin try
-     delete from Employees where employeeID = @employeeID;
-     delete from Peoples where personID = @personID;
+     delete from Employees where personID = @personID;
+     print'complate emplyee delete';
+	 delete from Peoples where personID = @personID;
      commit;
-	 return 1;
+	 --//return 1;
 end try
 BEGIN catch
+     print'hasError';
+
      ROLLBACK;
      DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE();
      DECLARE @ErrorSeverity INT = ERROR_SEVERITY();
      DECLARE @ErrorState INT = ERROR_STATE();
 	 Throw @ErrorMessage, @ErrorSeverity, @ErrorState;
 END catch;
-     return 0;
 end;
+   -- // return 0;
+
 
 
 create PROCEDURE  SP_deletEmployeeByPHone
@@ -134,4 +138,14 @@ END catch;
 end;
 
 
-select * from Department_view
+select * from Employee_view
+
+
+select * from Employees
+select * from Peoples
+
+delete Employees;
+delete Peoples;
+
+
+exec SP_deletEmployeeByID @personID =20
