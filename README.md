@@ -18,4 +18,20 @@ this project is under development.
   <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_3.png" width="100%" title="hover text">
   <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_4.png" width="100%" title="hover text"> 
   <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_5.png" width="100%" title="hover text">
+    <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_6.png" width="100%" title="hover text">
+    <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_7.png" width="100%" title="hover text">
+    <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_8.png" width="100%" title="hover text">
+    <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_9.png" width="100%" title="hover text">
+    <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_10.png" width="100%" title="hover text">
+    <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_11.png" width="100%" title="hover text">
+    <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_12.png" width="100%" title="hover text">
+    <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_13.png" width="100%" title="hover text">
+    <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_14.png" width="100%" title="hover text">
+    <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_15.png" width="100%" title="hover text">
+    <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_16.png" width="100%" title="hover text">
+    <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_17.png" width="100%" title="hover text">
+    <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_18.png" width="100%" title="hover text">
+    <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_19.png" width="100%" title="hover text">
+    <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_20.png" width="100%" title="hover text">
+
 </p>
