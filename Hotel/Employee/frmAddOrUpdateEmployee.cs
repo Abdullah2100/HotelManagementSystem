@@ -292,6 +292,19 @@ namespace Hotel.Employee
             lbLinRemoveImage.Visible = false;
         }
 
+<<<<<<< HEAD
 
+=======
+        private void txtNationalNo_Leave(object sender, EventArgs e)
+        {
+
+            if (clsPersonBuisness.isPersonExistByNationalNo(txtNationalNo.Text))
+            {
+                MessageBox.Show("Naitonal no is Allready exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                btnSave.Enabled = false;
+            }
+        }
+>>>>>>> 8499484 (uplading customer  section and all section belong in it)
     }
 }

@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 ﻿using Hotel.Employee;
 using Hotel.EmployeeType;
+=======
+﻿using Hotel.Customer;
+using Hotel.Employee;
+using Hotel.EmployeeType;
+using Hotel.FamilyRelation;
+using Hotel.Identity;
+>>>>>>> 8499484 (uplading customer  section and all section belong in it)
 using System.Windows.Forms;
 
 namespace Hotel
@@ -32,5 +40,26 @@ namespace Hotel
             frmListDepatment form = new frmListDepatment();
             form.ShowDialog();
         }
+<<<<<<< HEAD
+=======
+
+        private void familyRelationsToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            frmListFamilyRelation form = new frmListFamilyRelation();
+            form.ShowDialog();
+        }
+
+        private void identityToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            frmListIdentity form = new frmListIdentity();
+            form.ShowDialog();
+        }
+
+        private void customerListToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            frmListCustomers form = new frmListCustomers();
+            form.ShowDialog();
+        }
+>>>>>>> 8499484 (uplading customer  section and all section belong in it)
     }
 }

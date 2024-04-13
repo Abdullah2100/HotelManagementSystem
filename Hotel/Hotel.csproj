@@ -47,6 +47,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+=======
+    <Compile Include="Customer\frmAddOrUpdateCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer\frmAddOrUpdateCustomer.Designer.cs">
+      <DependentUpon>frmAddOrUpdateCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\frmListCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer\frmListCustomers.Designer.cs">
+      <DependentUpon>frmListCustomers.cs</DependentUpon>
+    </Compile>
+>>>>>>> 8499484 (uplading customer  section and all section belong in it)
     <Compile Include="Department\frmAddOrUpdateDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +98,21 @@
     <Compile Include="Employee\frmListEmployee.Designer.cs">
       <DependentUpon>frmListEmployee.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
+    <Compile Include="FamilyRelation\frmAddOrUpdateFamilyRelation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FamilyRelation\frmAddOrUpdateFamilyRelation.Designer.cs">
+      <DependentUpon>frmAddOrUpdateFamilyRelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FamilyRelation\frmListFamilyRelation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FamilyRelation\frmListFamilyRelation.Designer.cs">
+      <DependentUpon>frmListFamilyRelation.cs</DependentUpon>
+    </Compile>
+>>>>>>> 8499484 (uplading customer  section and all section belong in it)
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,8 +121,31 @@
     </Compile>
     <Compile Include="General\clsEmployee.cs" />
     <Compile Include="General\clsUtil.cs" />
+<<<<<<< HEAD
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+=======
+    <Compile Include="Identity\frmAddOrUpdateIdentity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Identity\frmAddOrUpdateIdentity.Designer.cs">
+      <DependentUpon>frmAddOrUpdateIdentity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Identity\frmListIdentity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Identity\frmListIdentity.Designer.cs">
+      <DependentUpon>frmListIdentity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Customer\frmAddOrUpdateCustomer.resx">
+      <DependentUpon>frmAddOrUpdateCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\frmListCustomers.resx">
+      <DependentUpon>frmListCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+>>>>>>> 8499484 (uplading customer  section and all section belong in it)
     <EmbeddedResource Include="Department\frmAddOrUpdateDepartment.resx">
       <DependentUpon>frmAddOrUpdateDepartment.cs</DependentUpon>
     </EmbeddedResource>
@@ -111,9 +164,27 @@
     <EmbeddedResource Include="Employee\frmListEmployee.resx">
       <DependentUpon>frmListEmployee.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+=======
+    <EmbeddedResource Include="FamilyRelation\frmAddOrUpdateFamilyRelation.resx">
+      <DependentUpon>frmAddOrUpdateFamilyRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FamilyRelation\frmListFamilyRelation.resx">
+      <DependentUpon>frmListFamilyRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Identity\frmAddOrUpdateIdentity.resx">
+      <DependentUpon>frmAddOrUpdateIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Identity\frmListIdentity.resx">
+      <DependentUpon>frmListIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+>>>>>>> 8499484 (uplading customer  section and all section belong in it)
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -167,5 +238,17 @@
   <ItemGroup>
     <None Include="Resources\personHolder.png" />
   </ItemGroup>
+<<<<<<< HEAD
+=======
+  <ItemGroup>
+    <None Include="Resources\FamilyRelation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\identity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer.png" />
+  </ItemGroup>
+>>>>>>> 8499484 (uplading customer  section and all section belong in it)
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

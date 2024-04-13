@@ -42,6 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+=======
+    <Compile Include="clsCustomerData.cs" />
+    <Compile Include="clsIdentitiesData.cs" />
+    <Compile Include="clsFamilyRelationData.cs" />
+>>>>>>> 8499484 (uplading customer  section and all section belong in it)
     <Compile Include="clsEmployeeData.cs" />
     <Compile Include="clsDepartmentData.cs" />
     <Compile Include="clsPeoplesData.cs" />
