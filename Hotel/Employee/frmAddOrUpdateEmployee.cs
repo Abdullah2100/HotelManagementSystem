@@ -292,9 +292,9 @@ namespace Hotel.Employee
             lbLinRemoveImage.Visible = false;
         }
 
-<<<<<<< HEAD
 
-=======
+
+
         private void txtNationalNo_Leave(object sender, EventArgs e)
         {
 
@@ -305,6 +305,6 @@ namespace Hotel.Employee
                 btnSave.Enabled = false;
             }
         }
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
+
     }
 }

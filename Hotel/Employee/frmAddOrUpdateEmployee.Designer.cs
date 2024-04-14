@@ -127,10 +127,10 @@
             this.txtNationalNo.Size = new System.Drawing.Size(238, 22);
             this.txtNationalNo.TabIndex = 8;
             this.txtNationalNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
-<<<<<<< HEAD
-=======
+
+
             this.txtNationalNo.Leave += new System.EventHandler(this.txtNationalNo_Leave);
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
+
             // 
             // label1
             // 

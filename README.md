@@ -18,7 +18,7 @@ this project is under development.
   <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_3.png" width="100%" title="hover text">
   <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_4.png" width="100%" title="hover text"> 
   <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_5.png" width="100%" title="hover text">
-<<<<<<< HEAD
+
     <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_6.png" width="100%" title="hover text">
     <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_7.png" width="100%" title="hover text">
     <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_8.png" width="100%" title="hover text">
@@ -35,6 +35,6 @@ this project is under development.
     <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_19.png" width="100%" title="hover text">
     <img src="https://github.com/Abdullah2100/HotelManagementSystem/blob/main/projectImages/image_20.png" width="100%" title="hover text">
 
-=======
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
+
+
 </p>

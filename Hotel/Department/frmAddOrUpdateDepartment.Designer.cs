@@ -45,29 +45,23 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(280, 22);
             this.txtName.TabIndex = 0;
-<<<<<<< HEAD
             this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
-=======
             this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-<<<<<<< HEAD
             this.label1.Location = new System.Drawing.Point(18, 187);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(147, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "EmployeeType Name :";
-=======
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
             this.label1.Location = new System.Drawing.Point(67, 180);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 26);
             this.label1.TabIndex = 1;
             this.label1.Text = "Name :";
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
             // 
             // btnSave
             // 
@@ -98,11 +92,8 @@
             this.lbTitle.AutoSize = true;
             this.lbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitle.ForeColor = System.Drawing.Color.Red;
-<<<<<<< HEAD
             this.lbTitle.Location = new System.Drawing.Point(52, 55);
-=======
             this.lbTitle.Location = new System.Drawing.Point(90, 53);
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
             this.lbTitle.Name = "lbTitle";
             this.lbTitle.Size = new System.Drawing.Size(487, 54);
             this.lbTitle.TabIndex = 4;
@@ -112,11 +103,8 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-<<<<<<< HEAD
             // frmAddOrUpdateDepartment
-=======
             // frmAddOrUpdateFamilyRelation
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -127,11 +115,8 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtName);
-<<<<<<< HEAD
             this.Name = "frmAddOrUpdateDepartment";
-=======
             this.Name = "frmAddOrUpdateFamilyRelation";
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddOrUpdateEmployeeType";
             this.Load += new System.EventHandler(this.frmAddOrUpdateEmployeeType_Load);

@@ -33,8 +33,6 @@ image nvarchar(max) not null,
 isBlock bit default 0
 )
 
-<<<<<<< HEAD
-=======
 
 
 
@@ -63,7 +61,7 @@ isBlock bit default 0
 )
 
 
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
+
 go
 create view Department_view as 
 select  
@@ -82,11 +80,11 @@ d.name as department,
 e.userName ,
 (p.firstName + '  '+p.lastName) as fullName,
 Year(getdate())-Year(p.brithDay) as age,
-<<<<<<< HEAD
+
 p.createdDate,
-=======
+
 cast (p.createdDate as nvarchar) as createdDate,
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
+
 e.isBlock
 from Employees e 
 inner join Departments d
@@ -94,7 +92,7 @@ on e.departmentID = d.departmentID
 inner join Peoples p 
 on p.personID = e.personID;
 
-<<<<<<< HEAD
+
 
 
 
@@ -117,7 +115,7 @@ addBy int references Employees(employeeID),
 )
 
 
-=======
+
 go
 create view Customer_view as 
 select 
@@ -151,20 +149,20 @@ on c.personID = p.personID
 
 select firstName,lastName  from Peoples where personID =22
 select * from Peoples
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
+
 
 
 
 
 create PROCEDURE  SP_deletEmployeeByID
     @personID int
-<<<<<<< HEAD
+
 as 
 BEGIN
     
-=======
+
 as     
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
+
 begin transaction;
 begin try
      delete from Employees where personID = @personID;
@@ -182,10 +180,10 @@ BEGIN catch
      DECLARE @ErrorState INT = ERROR_STATE();
 	 Throw @ErrorMessage, @ErrorSeverity, @ErrorState;
 END catch;
-<<<<<<< HEAD
+
 end;
    -- // return 0;
-=======
+
 
 
 create PROCEDURE  SP_deleteCustomer
@@ -210,7 +208,7 @@ BEGIN catch
 	 Throw @ErrorMessage, @ErrorSeverity, @ErrorState;
 END catch;
      
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
+
 
 
 
@@ -239,7 +237,7 @@ END catch;
      return 0;
 end;
 
-<<<<<<< HEAD
+
 
 select * from Employee_view
 
@@ -252,7 +250,7 @@ delete Peoples;
 
 
 exec SP_deletEmployeeByID @personID =20
-=======
+
 create function dbo.getCustomerPersonID(@customerId int)returns int
 as 
   begin
@@ -272,4 +270,4 @@ personID = @personID
 where customerID = @customerID
 values (addBy,familyRelationID,identityID,personID);
 select SCOPE_IDENTITY();
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
+

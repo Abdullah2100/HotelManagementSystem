@@ -6,21 +6,15 @@ namespace Hotel.EmployeeType
 {
     public partial class frmAddOrUpdateDepartment : Form
     {
-<<<<<<< HEAD
+        //public delegate void onDepartmentAdd(object sender, int id);
+        //public event onDepartmentAdd departmentAddEvent;
         enum enMode { add, update };
         private enMode _mode { get; set; }
 
-        private int _employeeTypeId = 0;
-        private clsDepartmentBuisness _employeeType;
-=======
-        public delegate void onDepartmentAdd(object sender, int id);
-        public event onDepartmentAdd departmentAddEvent;
-        enum enMode { add, update };
-        private enMode _mode { get; set; }
+
 
         private int _departmentId = 0;
         private clsDepartmentBuisness _department;
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
         public frmAddOrUpdateDepartment()
         {
             InitializeComponent();
@@ -31,22 +25,14 @@ namespace Hotel.EmployeeType
         {
             InitializeComponent();
             _mode = enMode.update;
-<<<<<<< HEAD
-            _employeeTypeId = employeeTypeID;
-=======
             _departmentId = employeeTypeID;
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
 
         }
         private void _reseatData()
         {
             if (_mode == enMode.add)
             {
-<<<<<<< HEAD
-                _employeeType = new clsDepartmentBuisness();
-=======
                 _department = new clsDepartmentBuisness();
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
                 lbTitle.Text = "Add New Department";
                 btnSave.Text = "Add";
             }
@@ -60,23 +46,15 @@ namespace Hotel.EmployeeType
 
         private void _loadDate()
         {
-<<<<<<< HEAD
-            _employeeType = clsDepartmentBuisness.findDepartmentByID(_employeeTypeId);
-            if (_employeeType == null)
-=======
+
             _department = clsDepartmentBuisness.findDepartmentByID(_departmentId);
             if (_department == null)
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
             {
                 MessageBox.Show("Department Not Found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
                 return;
             }
-<<<<<<< HEAD
-            txtName.Text = _employeeType.name;
-=======
             txtName.Text = _department.name;
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
         }
 
 
@@ -95,22 +73,9 @@ namespace Hotel.EmployeeType
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             if (!this.ValidateChildren())
             {
                 MessageBox.Show("You Must Fill All Require Feild", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            _employeeType.name = txtName.Text;
-
-            if (_employeeType.save())
-            {
-                MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-=======
-            if (string.IsNullOrEmpty(txtName.Text) || txtName.Text.Length < 2)
-            {
-                errorProvider1.SetError(txtName, "Write Valide Name");
                 return;
             }
             _department.name = txtName.Text;
@@ -118,27 +83,22 @@ namespace Hotel.EmployeeType
             if (_department.save())
             {
                 MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                departmentAddEvent.Invoke(this, _department.id);
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
+                return;
             }
             else
             {
                 MessageBox.Show("Error: Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
 
         }
 
-
         private void txtName_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-<<<<<<< HEAD
             if (string.IsNullOrEmpty(txtName.Text))
             {
                 errorProvider1.SetError(txtName, "This Feild is Require");
                 e.Cancel = true;
-=======
-
+            }
         }
 
         private void txtName_KeyPress(object sender, KeyPressEventArgs e)
@@ -146,7 +106,6 @@ namespace Hotel.EmployeeType
             if (char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
             }
         }
     }

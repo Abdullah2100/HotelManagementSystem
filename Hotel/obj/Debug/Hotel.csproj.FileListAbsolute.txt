@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.csproj.AssemblyReference.cache
 C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.Customer.frmAddOrUpdateCustomer.resources
 C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.Customer.frmListCustomers.resources
@@ -11,13 +9,11 @@ C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.Employee.frmEmploy
 C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.Employee.frmListEmployee.resources
 C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.FamilyRelation.frmAddOrUpdateFamilyRelation.resources
 C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.FamilyRelation.frmListFamilyRelation.resources
-C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.frmMain.resources
 C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.Identity.frmAddOrUpdateIdentity.resources
 C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.Identity.frmListIdentity.resources
 C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.Properties.Resources.resources
 C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.csproj.GenerateResource.cache
 C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.csproj.CoreCompileInputs.cache
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
 C:\Users\ali77\source\repos\HotelSystem\Hotel\bin\Debug\Hotel.exe.config
 C:\Users\ali77\source\repos\HotelSystem\Hotel\bin\Debug\Hotel.exe
 C:\Users\ali77\source\repos\HotelSystem\Hotel\bin\Debug\Hotel.pdb
@@ -25,20 +21,7 @@ C:\Users\ali77\source\repos\HotelSystem\Hotel\bin\Debug\HotelBuisness.dll
 C:\Users\ali77\source\repos\HotelSystem\Hotel\bin\Debug\HotelData.dll
 C:\Users\ali77\source\repos\HotelSystem\Hotel\bin\Debug\HotelBuisness.pdb
 C:\Users\ali77\source\repos\HotelSystem\Hotel\bin\Debug\HotelData.pdb
-<<<<<<< HEAD
-C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.csproj.AssemblyReference.cache
-C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.EmployeeType.frmAddOrUpdateDepartment.resources
-C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.EmployeeType.frmListDepatment.resources
-C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.Employee.Controller.ctrEmployeeCard.resources
-C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.Employee.frmAddOrUpdateEmployee.resources
-C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.Employee.frmEmployeeInfo.resources
-C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.Employee.frmListEmployee.resources
-C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.frmMain.resources
-C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.Properties.Resources.resources
-C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.csproj.GenerateResource.cache
-C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.csproj.CoreCompileInputs.cache
-=======
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
 C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.csproj.CopyComplete
 C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.exe
 C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.pdb
+C:\Users\ali77\source\repos\HotelSystem\Hotel\obj\Debug\Hotel.frmMain.resources

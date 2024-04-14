@@ -73,8 +73,8 @@ namespace Hotel.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-<<<<<<< HEAD
-=======
+
+
         internal static System.Drawing.Bitmap customer {
             get {
                 object obj = ResourceManager.GetObject("customer", resourceCulture);
@@ -85,7 +85,7 @@ namespace Hotel.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
+
         internal static System.Drawing.Bitmap customers {
             get {
                 object obj = ResourceManager.GetObject("customers", resourceCulture);
@@ -126,8 +126,8 @@ namespace Hotel.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-<<<<<<< HEAD
-=======
+
+
         internal static System.Drawing.Bitmap FamilyRelation {
             get {
                 object obj = ResourceManager.GetObject("FamilyRelation", resourceCulture);
@@ -148,7 +148,7 @@ namespace Hotel.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
+
         internal static System.Drawing.Bitmap jobType_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("jobType-removebg-preview", resourceCulture);

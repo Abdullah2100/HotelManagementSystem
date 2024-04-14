@@ -41,16 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="clsEmployeeBuisness.cs" />
     <Compile Include="clsDepartmentBuisness.cs" />
-=======
     <Compile Include="clsCustomerBuisness.cs" />
-    <Compile Include="clsEmployeeBuisness.cs" />
-    <Compile Include="clsDepartmentBuisness.cs" />
     <Compile Include="clsIdentitiesBuisness.cs" />
     <Compile Include="clsFamilyRelationBuisness.cs" />
->>>>>>> 8499484 (uplading customer  section and all section belong in it)
     <Compile Include="clsPersonBuisness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
