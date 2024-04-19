@@ -47,11 +47,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Booking\frmAddOrUpdateBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booking\frmAddOrUpdateBooking.Designer.cs">
+      <DependentUpon>frmAddOrUpdateBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Booking\frmListBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Booking\frmListBooking.Designer.cs">
+      <DependentUpon>frmListBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\Controller\ctrCustomerCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer\Controller\ctrCustomerCard.Designer.cs">
+      <DependentUpon>ctrCustomerCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\Controller\ctrCustomerCardFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Customer\Controller\ctrCustomerCardFilter.Designer.cs">
+      <DependentUpon>ctrCustomerCardFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Customer\frmAddOrUpdateCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Customer\frmAddOrUpdateCustomer.Designer.cs">
       <DependentUpon>frmAddOrUpdateCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\frmCustomerInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer\frmCustomerInfo.Designer.cs">
+      <DependentUpon>frmCustomerInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Customer\frmListCustomers.cs">
       <SubType>Form</SubType>
@@ -129,8 +159,47 @@
       <DependentUpon>frmListIdentity.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="RoomType\frmAddOrUpdateRoomType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoomType\frmAddOrUpdateRoomType.Designer.cs">
+      <DependentUpon>frmAddOrUpdateRoomType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RoomType\frmListRoomType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RoomType\frmListRoomType.Designer.cs">
+      <DependentUpon>frmListRoomType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Room\frmAddOrUpdateRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Room\frmAddOrUpdateRoom.Designer.cs">
+      <DependentUpon>frmAddOrUpdateRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Room\frmRoomList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Room\frmRoomList.Designer.cs">
+      <DependentUpon>frmRoomList.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Booking\frmAddOrUpdateBooking.resx">
+      <DependentUpon>frmAddOrUpdateBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Booking\frmListBooking.resx">
+      <DependentUpon>frmListBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\Controller\ctrCustomerCard.resx">
+      <DependentUpon>ctrCustomerCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\Controller\ctrCustomerCardFilter.resx">
+      <DependentUpon>ctrCustomerCardFilter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Customer\frmAddOrUpdateCustomer.resx">
       <DependentUpon>frmAddOrUpdateCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer\frmCustomerInfo.resx">
+      <DependentUpon>frmCustomerInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer\frmListCustomers.resx">
       <DependentUpon>frmListCustomers.cs</DependentUpon>
@@ -172,6 +241,18 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoomType\frmAddOrUpdateRoomType.resx">
+      <DependentUpon>frmAddOrUpdateRoomType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RoomType\frmListRoomType.resx">
+      <DependentUpon>frmListRoomType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Room\frmAddOrUpdateRoom.resx">
+      <DependentUpon>frmAddOrUpdateRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Room\frmRoomList.resx">
+      <DependentUpon>frmRoomList.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -229,6 +310,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\customer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RoomIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

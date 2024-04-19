@@ -47,6 +47,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.showInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomer)).BeginInit();
             this.cmsCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -167,40 +168,41 @@
             this.updateCustomerToolStripMenuItem,
             this.blockCustomerToolStripMenuItem,
             this.unBlockCustomerToolStripMenuItem,
-            this.deleteCustomerToolStripMenuItem});
+            this.deleteCustomerToolStripMenuItem,
+            this.showInfoToolStripMenuItem});
             this.cmsCustomer.Name = "cmsCustomer";
-            this.cmsCustomer.Size = new System.Drawing.Size(211, 152);
+            this.cmsCustomer.Size = new System.Drawing.Size(211, 176);
             // 
             // addCustomerToolStripMenuItem
             // 
             this.addCustomerToolStripMenuItem.Name = "addCustomerToolStripMenuItem";
-            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
+            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.addCustomerToolStripMenuItem.Text = "Add Customer";
             this.addCustomerToolStripMenuItem.Click += new System.EventHandler(this.addCustomerToolStripMenuItem_Click);
             // 
             // updateCustomerToolStripMenuItem
             // 
             this.updateCustomerToolStripMenuItem.Name = "updateCustomerToolStripMenuItem";
-            this.updateCustomerToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
+            this.updateCustomerToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.updateCustomerToolStripMenuItem.Text = "Update Customer";
             this.updateCustomerToolStripMenuItem.Click += new System.EventHandler(this.updateCustomerToolStripMenuItem_Click);
             // 
             // blockCustomerToolStripMenuItem
             // 
             this.blockCustomerToolStripMenuItem.Name = "blockCustomerToolStripMenuItem";
-            this.blockCustomerToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
+            this.blockCustomerToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.blockCustomerToolStripMenuItem.Text = "Block Customer";
             // 
             // unBlockCustomerToolStripMenuItem
             // 
             this.unBlockCustomerToolStripMenuItem.Name = "unBlockCustomerToolStripMenuItem";
-            this.unBlockCustomerToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
+            this.unBlockCustomerToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.unBlockCustomerToolStripMenuItem.Text = "UnBlock Customer";
             // 
             // deleteCustomerToolStripMenuItem
             // 
             this.deleteCustomerToolStripMenuItem.Name = "deleteCustomerToolStripMenuItem";
-            this.deleteCustomerToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
+            this.deleteCustomerToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.deleteCustomerToolStripMenuItem.Text = "Delete Customer";
             // 
             // label1
@@ -234,6 +236,13 @@
             this.btnAdd.TabIndex = 25;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // showInfoToolStripMenuItem
+            // 
+            this.showInfoToolStripMenuItem.Name = "showInfoToolStripMenuItem";
+            this.showInfoToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.showInfoToolStripMenuItem.Text = "Show Info";
+            this.showInfoToolStripMenuItem.Click += new System.EventHandler(this.showInfoToolStripMenuItem_Click);
             // 
             // frmListCustomers
             // 
@@ -284,5 +293,6 @@
         private System.Windows.Forms.ToolStripMenuItem blockCustomerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem unBlockCustomerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteCustomerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showInfoToolStripMenuItem;
     }
 }

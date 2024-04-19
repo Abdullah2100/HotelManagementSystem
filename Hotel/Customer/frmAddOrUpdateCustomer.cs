@@ -10,6 +10,8 @@ namespace Hotel.Customer
 {
     public partial class frmAddOrUpdateCustomer : Form
     {
+        public delegate void onCustomerAdd(object sender, int id);
+        public event onCustomerAdd OnAddEvent;
         private enum enMode { add, update };
         private enMode _mode { get; set; }
 
@@ -185,6 +187,7 @@ namespace Hotel.Customer
                 if (_customer.save())
                 {
                     MessageBox.Show("Data Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    OnAddEvent?.Invoke(this, _customer.id);
                 }
                 else
                 {

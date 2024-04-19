@@ -108,5 +108,15 @@ namespace Hotel.EmployeeType
                 e.Handled = true;
             }
         }
+
+        private void txtName_Leave(object sender, EventArgs e)
+        {
+            if (clsDepartmentBuisness.isDepartmentExistByName(txtName.Text))
+            {
+                MessageBox.Show("This Name is Allready Exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                btnSave.Enabled = false;
+            }
+        }
     }
 }

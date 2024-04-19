@@ -73,22 +73,9 @@ namespace Hotel.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-
-
         internal static System.Drawing.Bitmap customer {
             get {
                 object obj = ResourceManager.GetObject("customer", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-
-        internal static System.Drawing.Bitmap customers {
-            get {
-                object obj = ResourceManager.GetObject("customers", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,8 +113,6 @@ namespace Hotel.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-
-
         internal static System.Drawing.Bitmap FamilyRelation {
             get {
                 object obj = ResourceManager.GetObject("FamilyRelation", resourceCulture);
@@ -148,7 +133,6 @@ namespace Hotel.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-
         internal static System.Drawing.Bitmap jobType_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("jobType-removebg-preview", resourceCulture);
@@ -162,6 +146,26 @@ namespace Hotel.Properties {
         internal static System.Drawing.Bitmap personHolder {
             get {
                 object obj = ResourceManager.GetObject("personHolder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RoomIcon {
+            get {
+                object obj = ResourceManager.GetObject("RoomIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search_1_ {
+            get {
+                object obj = ResourceManager.GetObject("search(1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

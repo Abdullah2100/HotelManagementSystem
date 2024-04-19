@@ -11,7 +11,7 @@ namespace HotelData
 
         public static bool findPerson
             (
-            int personID,
+            int id,
             ref string firstName,
             ref string lastName,
             ref DateTime brithDay,
@@ -31,7 +31,7 @@ namespace HotelData
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
 
-                        cmd.Parameters.AddWithValue("@personID", personID);
+                        cmd.Parameters.AddWithValue("@personID", id);
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             if (reader.Read())
@@ -62,7 +62,7 @@ namespace HotelData
         public static bool findPerson
             (
             string nationalNo,
-            ref int personID,
+            ref int id,
             ref string firstName,
             ref string lastName,
             ref DateTime brithDay,
@@ -87,7 +87,7 @@ namespace HotelData
                             if (reader.Read())
                             {
                                 isFound = true;
-                                personID = (int)reader["personID"];
+                                id = (int)reader["personID"];
                                 firstName = (string)reader["firstName"];
                                 lastName = (string)reader["lastName"];
                                 nationalNo = (string)reader["nationalNo"];

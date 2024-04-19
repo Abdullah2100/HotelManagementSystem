@@ -37,6 +37,9 @@
             this.dToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.blockEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.unBlockEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.lbFilter = new System.Windows.Forms.Label();
             this.cbbGenral = new System.Windows.Forms.ComboBox();
@@ -45,9 +48,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.showInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.blockEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.unBlockEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployee)).BeginInit();
             this.cmsEmployee.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -106,29 +106,50 @@
             this.blockEmployeeToolStripMenuItem,
             this.unBlockEmployeeToolStripMenuItem});
             this.cmsEmployee.Name = "cmsEmployee";
-            this.cmsEmployee.Size = new System.Drawing.Size(211, 176);
+            this.cmsEmployee.Size = new System.Drawing.Size(203, 148);
             this.cmsEmployee.Opening += new System.ComponentModel.CancelEventHandler(this.cmsEmployee_Opening);
             // 
             // dToolStripMenuItem
             // 
             this.dToolStripMenuItem.Name = "dToolStripMenuItem";
-            this.dToolStripMenuItem.Size = new System.Drawing.Size(197, 24);
+            this.dToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
             this.dToolStripMenuItem.Text = "Add Employee";
             this.dToolStripMenuItem.Click += new System.EventHandler(this.dToolStripMenuItem_Click);
             // 
             // updateEmployeeToolStripMenuItem
             // 
             this.updateEmployeeToolStripMenuItem.Name = "updateEmployeeToolStripMenuItem";
-            this.updateEmployeeToolStripMenuItem.Size = new System.Drawing.Size(197, 24);
+            this.updateEmployeeToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
             this.updateEmployeeToolStripMenuItem.Text = "Update Employee";
             this.updateEmployeeToolStripMenuItem.Click += new System.EventHandler(this.updateEmployeeToolStripMenuItem_Click);
             // 
             // deleteEmployeeToolStripMenuItem
             // 
             this.deleteEmployeeToolStripMenuItem.Name = "deleteEmployeeToolStripMenuItem";
-            this.deleteEmployeeToolStripMenuItem.Size = new System.Drawing.Size(197, 24);
+            this.deleteEmployeeToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
             this.deleteEmployeeToolStripMenuItem.Text = "Delete Employee";
             this.deleteEmployeeToolStripMenuItem.Click += new System.EventHandler(this.deleteEmployeeToolStripMenuItem_Click);
+            // 
+            // showInfoToolStripMenuItem
+            // 
+            this.showInfoToolStripMenuItem.Name = "showInfoToolStripMenuItem";
+            this.showInfoToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.showInfoToolStripMenuItem.Text = "Show Info";
+            this.showInfoToolStripMenuItem.Click += new System.EventHandler(this.showInfoToolStripMenuItem_Click);
+            // 
+            // blockEmployeeToolStripMenuItem
+            // 
+            this.blockEmployeeToolStripMenuItem.Name = "blockEmployeeToolStripMenuItem";
+            this.blockEmployeeToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.blockEmployeeToolStripMenuItem.Text = "Block Employee";
+            this.blockEmployeeToolStripMenuItem.Click += new System.EventHandler(this.blockEmployeeToolStripMenuItem_Click);
+            // 
+            // unBlockEmployeeToolStripMenuItem
+            // 
+            this.unBlockEmployeeToolStripMenuItem.Name = "unBlockEmployeeToolStripMenuItem";
+            this.unBlockEmployeeToolStripMenuItem.Size = new System.Drawing.Size(202, 24);
+            this.unBlockEmployeeToolStripMenuItem.Text = "UnBlock Employee";
+            this.unBlockEmployeeToolStripMenuItem.Click += new System.EventHandler(this.unBlockEmployeeToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -226,27 +247,6 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // showInfoToolStripMenuItem
-            // 
-            this.showInfoToolStripMenuItem.Name = "showInfoToolStripMenuItem";
-            this.showInfoToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
-            this.showInfoToolStripMenuItem.Text = "Show Info";
-            this.showInfoToolStripMenuItem.Click += new System.EventHandler(this.showInfoToolStripMenuItem_Click);
-            // 
-            // blockEmployeeToolStripMenuItem
-            // 
-            this.blockEmployeeToolStripMenuItem.Name = "blockEmployeeToolStripMenuItem";
-            this.blockEmployeeToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
-            this.blockEmployeeToolStripMenuItem.Text = "Block Employee";
-            this.blockEmployeeToolStripMenuItem.Click += new System.EventHandler(this.blockEmployeeToolStripMenuItem_Click);
-            // 
-            // unBlockEmployeeToolStripMenuItem
-            // 
-            this.unBlockEmployeeToolStripMenuItem.Name = "unBlockEmployeeToolStripMenuItem";
-            this.unBlockEmployeeToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
-            this.unBlockEmployeeToolStripMenuItem.Text = "UnBlock Employee";
-            this.unBlockEmployeeToolStripMenuItem.Click += new System.EventHandler(this.unBlockEmployeeToolStripMenuItem_Click);
             // 
             // frmListEmployee
             // 

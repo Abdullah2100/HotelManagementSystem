@@ -70,6 +70,69 @@ namespace HotelData
         }
 
 
+        public static bool findCustomer
+         (
+
+         ref int personID,
+         ref int id,
+         ref int familyRelationID,
+         ref int? addBy,
+         ref int identityID,
+         ref int? belongTo,
+         ref bool isBlock
+         )
+        {
+
+            bool isFound = false;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionUrl))
+                {
+                    con.Open();
+                    string query = @"select * from Customers where personID = @personID";
+
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@personID", personID);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                isFound = true;
+                                id = (int)reader["customerID"];
+                                familyRelationID = (int)reader["familyRelationID"];
+                                personID = (int)reader["personID"];
+
+                                if (reader["addBy"] == DBNull.Value)
+                                    addBy = null;
+                                else
+                                    addBy = (int)reader["addBy"];
+
+                                identityID = (int)reader["identityID"];
+
+                                if (reader["belongTo"] == DBNull.Value)
+                                    addBy = null;
+                                else
+                                    addBy = (int)reader["belongTo"];
+
+                                isBlock = (bool)reader["isBlock"];
+                            }
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error is :" + ex.ToString());
+            }
+
+            return isFound;
+
+        }
+
+
         public static int createCustomer
             (
             int familyRelationID,
@@ -273,7 +336,7 @@ namespace HotelData
                 using (SqlConnection con = new SqlConnection(connectionUrl))
                 {
                     con.Open();
-                    string query = @"select found = 1 from Customers where customerID = id";
+                    string query = @"select found = 1 from Customers where customerID = id and isBlock  = 0";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
@@ -298,6 +361,45 @@ namespace HotelData
             return isBlock;
 
         }
+
+
+
+        public static bool isCustomerExistByID(int id)
+        {
+
+            bool isBlock = false;
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionUrl))
+                {
+                    con.Open();
+                    string query = @"select found = 1 from Customers where customerID = @id";
+
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@id", id);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                isBlock = true;
+                            }
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error is :" + ex.ToString());
+            }
+
+            return isBlock;
+
+        }
+
+
 
         public static bool chagneCusotmerState(int id, bool state)
         {

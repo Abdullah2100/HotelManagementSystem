@@ -43,11 +43,11 @@ namespace Hotel.Customer
                 dgvCustomer.Columns[7].HeaderText = "Is Block";
                 dgvCustomer.Columns[7].Width = 70;
 
-                dgvCustomer.Columns[8].HeaderText = "Add Date";
-                dgvCustomer.Columns[8].Width = 120;
+                ////dgvCustomer.Columns[8].HeaderText = "Add Date";
+                ////dgvCustomer.Columns[8].Width = 120;
 
-                dgvCustomer.Columns[9].HeaderText = "Created By";
-                dgvCustomer.Columns[9].Width = 120;
+                ////dgvCustomer.Columns[9].HeaderText = "Created By";
+                ////dgvCustomer.Columns[9].Width = 120;
 
 
 
@@ -205,6 +205,14 @@ namespace Hotel.Customer
             else
                 dtCusotmer.DefaultView.RowFilter = string.Format("[{0}] = {1}", columnName, rowValue);
 
+        }
+
+        private void showInfoToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            int customerID = (int)dgvCustomer.CurrentRow.Cells[0].Value;
+
+            frmCustomerInfo form = new frmCustomerInfo(customerID);
+            form.ShowDialog();
         }
     }
 }

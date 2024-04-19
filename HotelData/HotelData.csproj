@@ -42,7 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsBookingData.cs" />
     <Compile Include="clsCustomerData.cs" />
+    <Compile Include="clsRoomData.cs" />
+    <Compile Include="clsRoomTypeData .cs" />
     <Compile Include="clsIdentitiesData.cs" />
     <Compile Include="clsFamilyRelationData.cs" />
     <Compile Include="clsEmployeeData.cs" />

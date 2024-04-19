@@ -21,6 +21,7 @@ name  nvarchar(50)
 )
 
 
+
 create table Employees(
 employeeID int identity(1,1) primary key,
 userName  nvarchar(50) null,
@@ -48,43 +49,103 @@ name nvarchar(50)
 )
 
 
-
-
 create table Customers(
 customerID int identity(1,1) primary key,
 familyRelationID  int references FamilyRelations(familyRelationID ),
 personID int references Peoples(personID),
 addBy int references Employees(employeeID),
-belongTo int references Customers(customerID), 
 identityID int references Identities(identityID),
 isBlock bit default 0
 )
 
+create table RoomTypes(
+roomTypeID int identity(1,1) primary key,
+name  nvarchar(50) 
+)
 
+create table Rooms(
+roomID int identity(1,1) primary key,
+roomTypeID int references RoomTypes(roomTypeID),
+capacity tinyint not null,
+bedNumber tinyint not null,
+pricePerDay float not null,
+state tinyint not null,
+addBy int references Employees(employeeID),
+createdDate Datetime default getDate(),
+floorNumber smallint not null 
+)
+
+create function dbo.getEmployeeNameByPersonID(@personID int)returns nvarchar(max)
+as 
+  begin
+  if @personID = 0
+    BEGIN
+     return 'none';
+    END
+  declare @FullName nvarchar(max);
+  select @FullName = concat( firstName ,lastName, ' ') from Peoples where personID = @personID;
+  return @FullName
+  end
+
+
+create function dbo.getEmployeeNameByID(@ID int)returns nvarchar(max)
+as 
+  begin
+  if @ID = 0 or @ID is null
+    BEGIN
+     return 'none';
+    END
+  declare @FullName nvarchar(max);
+  select @FullName = concat( p.firstName ,p.lastName, ' ') from Peoples p inner join Employees e on e.personID = p.personID and e.employeeID = @ID;
+  return @FullName
+  end
+
+create view  room_view as 
+select 
+r.roomID ,
+(select name from RoomTypes where roomTypeID = r.roomTypeID) as roomType,
+r.capacity ,
+r.bedNumber ,
+r.pricePerDay , 
+case 
+when  r.state =0 then 'None'
+when  r.state =1 then 'is booking'
+when  r.state = 2 then 'is Cleaning'
+else 'out of services'
+end as state,
+r.createdDate,
+dbo.getEmployeeNameByID(addBy) as addBy
+from Rooms r
+
+
+
+create function dbo.calculateEmployeeNumberInDepartment(@departmentID int)returns INT
+as 
+  begin
+  declare @employeeNumber int;
+  select @employeeNumber = (select count(*) from Employees where departmentID =@departmentID)
+  return @employeeNumber
+  end
 
 go
 create view Department_view as 
 select  
-d.departmentID,
-d.name,
-(select count(*) from Employees where departmentID = d.departmentID)as employeeNumber
-from Departments d
+departmentID,
+name,
+dbo.calculateEmployeeNumberInDepartment(departmentID)as employeeNumber
+from Departments
+
 
 go
-
 create view Employee_view as 
 select 
 e.employeeID ,
 e.personID,
 d.name as department,
 e.userName ,
-(p.firstName + '  '+p.lastName) as fullName,
+dbo.getEmployeeNameByPersonID(e.personID) as fullName,
 Year(getdate())-Year(p.brithDay) as age,
-
-p.createdDate,
-
 cast (p.createdDate as nvarchar) as createdDate,
-
 e.isBlock
 from Employees e 
 inner join Departments d
@@ -105,32 +166,28 @@ name nvarchar(50)
 
 
 
-create table Customer(
-customerID int identity(1,1) primary key,
-userName  nvarchar(50) null,
-password  nvarchar(max)null,
-familyRelationID  int references FamilyRelations(familyRelationID ),
-personID int references Peoples(personID),
-addBy int references Employees(employeeID),
-)
 
+go
+create function dbo.getCustomerPersonID(@customerId int)returns int
+as 
+  begin
+  if @customerId is null
+    begin 
+	 return 0;
+	end
+  declare @personID int;
+  select @personID = personID from Customers where customerID = @customerId;
+  return @personID
+  end
 
 
 go
+
 create view Customer_view as 
 select 
 c.customerID,
 c.personID,
-CONCAT(p.firstName,p.lastName,' ') as fullName,
-case 
-when c.belongTo is null then 'none'
-else
-(select CONCAT(firstName,lastName,'  ') from Peoples where personID =dbo.getCustomerPersonID(c.belongTo) ) 
-end as belongToName,
-case 
-when c.belongTo is null then 0
-else c.belongTo 
-end  as belongID,
+dbo.getEmployeeNameByPersonID(c.personID) as fullName,
 fr.name as relationShip,
 i.name as kindOfIdentity,
 c.isBlock,
@@ -147,8 +204,7 @@ on c.identityID = i.identityID
 inner join Peoples p
 on c.personID = p.personID
 
-select firstName,lastName  from Peoples where personID =22
-select * from Peoples
+
 
 
 
@@ -156,13 +212,8 @@ select * from Peoples
 
 create PROCEDURE  SP_deletEmployeeByID
     @personID int
-
 as 
 BEGIN
-    
-
-as     
-
 begin transaction;
 begin try
      delete from Employees where personID = @personID;
@@ -212,62 +263,121 @@ END catch;
 
 
 
-create PROCEDURE  SP_deletEmployeeByPHone
-    @phone nvarchar
+
+create table Bookings(
+bookingID int identity (1,1) primary key,
+customerID int references Customers(customerID),
+roomID int references Rooms(roomID),
+addDate datetime default getdate(),
+outDate DATETIME  null,
+realDayOut DateTime null,
+totalPrice DECIMAL(19,4) not null ,
+firstPayment DECIMAL(19,4) not null,
+reminderPayment DECIMAL(19,4)  not null,
+adionalPayment DECIMAL(19,4) null,
+isAvilable bit default 1,
+addBy int references Employees(employeeID),
+belongToBooking int references Bookings(bookingID),
+)
+
+
+
+create view booking_view as 
+select 
+b.bookingID,
+b.customerID,
+CONCAT(p.firstName,p.lastName , '  ') as fullName ,
+fr.name as  relationShipe,
+i.name as identityName,
+p.nationalNo ,
+YEAR(getdate())-YEAR(p.brithDay) as age,
+b.isAvilable 
+from Bookings b
+inner join Customers c
+on b.customerID = c.customerID
+inner join FamilyRelations fr 
+on fr.familyRelationID = c.familyRelationID
+inner join Identities i 
+on c.identityID = i.identityID
+inner join Peoples p 
+on c.personID = p.personID 
+where b.belongToBooking is null
+
+
+
+
+create function dbo.getbooking_by_belong (@BlongID int)returns table 
 as 
+return (select 
+b.bookingID,
+b.customerID,
+CONCAT(p.firstName,p.lastName , '  ') as fullName ,
+fr.name as  relationShipe,
+i.name as identityName,
+p.nationalNo ,
+YEAR(getdate())-YEAR(p.brithDay) as age,
+b.isAvilable 
+from Bookings b
+inner join Customers c
+on b.customerID = c.customerID
+inner join FamilyRelations fr 
+on fr.familyRelationID = c.familyRelationID
+inner join Identities i 
+on c.identityID = i.identityID
+inner join Peoples p 
+on c.personID = p.personID 
+)
+
+
+
+CREATE PROCEDURE SP_joinCustomerToBooking
+(
+    @CustomerID INT,
+    @BookingID INT,
+    @AddBy INT
+)
+
+AS
 BEGIN
-     Declare  @personID int;
-     select @personID = personID from Employees where phone = @phone;
 
-begin transaction;
+    declare @Result int;
+    insert  INTO Bookings
+    (
+        customerID,
+        roomID,
+        addDate,
+        outDate,
+        realDayOut,
+        totalPrice,
+        firstPayment,
+        reminderPayment,
+        adionalPayment,
+        isAvilable,
+        addBy,
+        belongToBooking
+    )
+    SELECT
+        @CustomerID,
+        roomID,
+        addDate, 
+        outDate,
+        realDayOut,
+        totalPrice,
+        firstPayment,
+        reminderPayment,
+        adionalPayment,
+        isAvilable, 
+         @AddBy,
+        @bookingID 
+    FROM Bookings
+    WHERE bookingID = @BookingID; 
+    SET @Result = @@ROWCOUNT;
+	if @Result>0
+	   begin
+	     select SCOPE_IDENTITY();
+	   end
+    else
+	  throw 10,'could not join Booking',1
+END;
 
-begin try
-     delete from Employees where employeeID = @phone;
-     delete from Peoples where personID = @personID;
-     commit;
-	 return 1;
-end try
-BEGIN catch
-     ROLLBACK;
-     DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE();
-     DECLARE @ErrorSeverity INT = ERROR_SEVERITY();
-     DECLARE @ErrorState INT = ERROR_STATE();
-	 Throw @ErrorMessage, @ErrorSeverity, @ErrorState;
-END catch;
-     return 0;
-end;
-
-
-
-select * from Employee_view
-
-
-select * from Employees
-select * from Peoples
-
-delete Employees;
-delete Peoples;
-
-
-exec SP_deletEmployeeByID @personID =20
-
-create function dbo.getCustomerPersonID(@customerId int)returns int
-as 
-  begin
-  declare @personID int;
-  select @personID = personID from Customers where customerID = @customerId;
-  return @personID
-  end
-
-
-
-
-update Customer  set 
-addBy = @addBy,
-familyRelationID = @familyRelationID,
-identityID = @identityID,
-personID = @personID
-where customerID = @customerID
-values (addBy,familyRelationID,identityID,personID);
-select SCOPE_IDENTITY();
 

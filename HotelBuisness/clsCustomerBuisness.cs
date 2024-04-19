@@ -70,6 +70,22 @@ namespace HotelBuisness
             return null;
         }
 
+        public static clsCustomerBuisness findCustomerByPersonID(int personID)
+        {
+            int id = 0;
+            int familyRelationID = 0;
+            int? addBy = null;
+            int? belongTo = null;
+            int identityID = 0;
+            bool isBlock = false;
+
+            if (clsCustomersData.findCustomer(personID, ref id, ref familyRelationID, ref addBy, ref identityID, ref belongTo, ref isBlock))
+            {
+                return new clsCustomerBuisness(enMode.update, id, familyRelationID, personID, addBy, belongTo, identityID, isBlock);
+            }
+            return null;
+        }
+
         private bool _add()
         {
             this.id = clsCustomersData.createCustomer(familyRelationID, personID, addBy, identityID, belongTo);
@@ -127,7 +143,20 @@ namespace HotelBuisness
         {
             return clsCustomersData.isCustomerBlock(id);
         }
+        public static bool isCustomerExistByID(int id)
+        {
+            return clsCustomersData.isCustomerExistByID(id);
+        }
 
+        public static clsCustomerBuisness findCustomerByNatinoalNo(string natioNo)
+        {
+            clsPersonBuisness _perosn = clsPersonBuisness.findPersonByNationalNo(natioNo);
+            if (_perosn != null)
+            {
+                return clsCustomerBuisness.findCustomerByPersonID(_perosn.id);
+            }
+            return null;
+        }
 
     }
 }

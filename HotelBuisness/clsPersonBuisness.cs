@@ -15,6 +15,10 @@ namespace HotelBuisness
         public DateTime brithDay { get; set; }
         public DateTime createdDate { get; set; }
 
+        public string fullName
+        {
+            get { return firstName + " " + lastName; }
+        }
         public clsPersonBuisness()
         {
             _mode = enMode.add;

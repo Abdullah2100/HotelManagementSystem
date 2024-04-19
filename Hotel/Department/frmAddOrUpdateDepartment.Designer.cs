@@ -45,17 +45,13 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(280, 22);
             this.txtName.TabIndex = 0;
-            this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
             this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
+            this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
+            this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 187);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "EmployeeType Name :";
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.8F);
             this.label1.Location = new System.Drawing.Point(67, 180);
             this.label1.Name = "label1";
@@ -92,7 +88,6 @@
             this.lbTitle.AutoSize = true;
             this.lbTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitle.ForeColor = System.Drawing.Color.Red;
-            this.lbTitle.Location = new System.Drawing.Point(52, 55);
             this.lbTitle.Location = new System.Drawing.Point(90, 53);
             this.lbTitle.Name = "lbTitle";
             this.lbTitle.Size = new System.Drawing.Size(487, 54);
@@ -104,7 +99,6 @@
             this.errorProvider1.ContainerControl = this;
             // 
             // frmAddOrUpdateDepartment
-            // frmAddOrUpdateFamilyRelation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -116,7 +110,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtName);
             this.Name = "frmAddOrUpdateDepartment";
-            this.Name = "frmAddOrUpdateFamilyRelation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddOrUpdateEmployeeType";
             this.Load += new System.EventHandler(this.frmAddOrUpdateEmployeeType_Load);
